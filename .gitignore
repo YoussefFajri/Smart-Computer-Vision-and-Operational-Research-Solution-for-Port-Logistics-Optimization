@@ -61,7 +61,13 @@ container_ai_project/static/*
 *.bbl
 *.blg
 
-# 7. Operating System & IDE Files
+# 7. Heavy Datasets & Model Files
+Data/
+container_ai_project/datasets/custom_data/
+*.pt
+yolov8n.pt
+
+# 8. Operating System & IDE Files
 .DS_Store
 Thumbs.db
 .idea/
