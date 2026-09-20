@@ -1,0 +1,331 @@
+\documentclass[aspectratio=169,french]{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{babel}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning,calc}
+
+% ─── CONFIGURATION DES COULEURS (Style Référence Pro & Marsa Maroc) ─
+\definecolor{RefBlue}{RGB}{0,82,165}        % Bleu Royal Référence #0052A5
+\definecolor{RefOrange}{RGB}{255,107,0}     % Orange Référence #FF6B00
+\definecolor{CardBG}{RGB}{248,250,252}      % Gris Clair Card #F8FAFC
+\definecolor{Charcoal}{RGB}{30,41,59}       % Texte sombre #1E293B
+\definecolor{MutedGray}{RGB}{148,163,184}   % Texte Muted #94A3B8
+
+% ─── THÈME BEAMER PERSONNALISÉ (Fond Blanc Épuré) ────────────────────
+\setbeamercolor{background canvas}{bg=white}
+\setbeamercolor{structure}{fg=RefBlue}
+\setbeamercolor{palette primary}{bg=RefBlue,fg=white}
+\setbeamercolor{palette secondary}{bg=RefBlue!85!black,fg=white}
+\setbeamercolor{palette tertiary}{bg=RefBlue!70!black,fg=white}
+\setbeamercolor{titlelike}{parent=palette primary,fg=RefBlue}
+
+% Style des cadres / blocs Beamer épurés (Style Card-Box)
+\tcbset{
+  cardstyle/.style={
+    colback=CardBG,
+    colframe=CardBG!90!black,
+    arc=4mm,
+    boxrule=0.5pt,
+    left=10pt, right=10pt, top=8pt, bottom=8pt
+  }
+}
+
+\setbeamercolor{block title}{bg=RefBlue,fg=white}
+\setbeamercolor{block body}{bg=CardBG,fg=Charcoal}
+\setbeamercolor{block title example}{bg=RefOrange,fg=white}
+\setbeamercolor{block body example}{bg=RefOrange!8,fg=Charcoal}
+\setbeamertemplate{blocks}[rounded][shadow=false]
+\setbeamertemplate{navigation symbols}{}
+
+% Pied de page fil d'Ariane (Breadcrumb Navigation)
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \begin{center}
+    \vspace{-4pt}
+    \tiny\color{MutedGray}
+    \textbf{\textcolor{RefOrange}{1. Intro Générale}} \ \ $\cdot$ \ \ 
+    \textbf{2. Structure d'Accueil} \ \ $\cdot$ \ \ 
+    \textbf{3. Problématique} \ \ $\cdot$ \ \ 
+    \textbf{4. Méthodologie \& Arch.} \ \ $\cdot$ \ \ 
+    \textbf{5. Réalisation \& Résultats} \ \ $\cdot$ \ \ 
+    \textbf{6. Conclusion \& Persp.}
+    \vspace{4pt}
+  \end{center}
+}
+
+% En-tête minimaliste avec trait souligné bicolore
+\setbeamertemplate{frametitle}{
+  \vspace{0.3cm}
+  \leavevmode
+  \begin{beamercolorbox}[wd=\paperwidth,ht=3ex,dp=1ex,leftskip=1.2cm,rightskip=1.2cm]{frametitle}
+    \usebeamerfont{frametitle}\insertframetitle\\
+    \vspace{-0.2cm}
+    \begin{tikzpicture}
+      \fill[RefBlue] (0,0) rectangle (2.0,0.04);
+      \fill[RefOrange] (0,0) rectangle (0.7,0.04);
+    \end{tikzpicture}
+  \end{beamercolorbox}
+}
+
+% ─── DÉFINITION DES INFORMATIONS DE PAGE DE GARDE ────────────────────
+\title[Solution Intelligente Logistique Portuaire]{Conception et réalisation d'un système intelligent de vision par ordinateur et d'optimisation logistique portuaire}
+\subtitle{Automatisation de la gestion des conteneurs par IA pour Marsa Maroc}
+\author[FAJRI Youssef]{Présenté par : \textbf{FAJRI Youssef} \qquad Sous la direction de : \textbf{Pr. KICH Ismail}}
+\institute[USMS - FPBM]{
+  \small Université Sultan Moulay Slimane -- Faculté Polydisciplinaire de Béni Mellal\\
+  Master Data Science et Sécurité des Systèmes d'Information
+}
+\date[2025/2026]{Organisme d'accueil : \textbf{Marsa Maroc} \ (Encadrant : M. Mohamed QODSI) -- 2025/2026}
+
+\begin{document}
+
+% ─── SLIDE 1 : PAGE DE GARDE ──────────────────────────────────────────
+\begin{frame}[plain]
+  \begin{center}
+    \vspace{-0.2cm}
+    \begin{tabular}{c c c}
+      \includegraphics[height=0.9cm]{universite.png} &
+      \quad \small \textbf{Université Sultan Moulay Slimane -- FPBM} \quad &
+      \includegraphics[height=0.9cm]{faculte.jpg}
+    \end{tabular}
+    
+    \vspace{0.3cm}
+    \tiny\color{MutedGray}\textbf{PROJET DE FIN D'ÉTUDES, MASTER EN DATA SCIENCE ET SÉCURITÉ DES SYSTÈMES D'INFORMATION}
+    
+    \vspace{0.2cm}
+    \begin{tcolorbox}[colback=white,colframe=RefBlue,arc=3mm,boxrule=1.2pt,halign=center]
+      \small\bfseries\textcolor{RefBlue}{Conception et réalisation d'un système intelligent de vision par ordinateur et d'optimisation logistique portuaire}\\[3pt]
+      \scriptsize\bfseries\textcolor{RefBlue}{Automatisation de la gestion des conteneurs par IA pour Marsa Maroc}
+    \end{tcolorbox}
+    
+    \vspace{0.2cm}
+    \scriptsize
+    \begin{tabular}{l p{4cm} r}
+      Présenté par : \textbf{FAJRI Youssef} & & Sous la direction de : \textbf{Pr. KICH Ismail}
+    \end{tabular}
+    
+    \vspace{0.3cm}
+    \begin{tcolorbox}[colback=CardBG,colframe=CardBG!80!black,arc=2mm,boxrule=0.5pt,halign=center]
+      \tiny Organisme d'accueil : \textbf{Marsa Maroc} \qquad Encadrant professionnel : \textbf{M. Mohamed QODSI}
+    \end{tcolorbox}
+    
+    \vspace{0.1cm}
+    \tiny\color{gray}Année Universitaire 2025 -- 2026
+  \end{center}
+\end{frame}
+
+% ─── SLIDE 2 : SOMMAIRE / PLAN ────────────────────────────────────────
+\begin{frame}{Plan de la présentation}
+  \vspace{0.2cm}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[cardstyle]
+        \small\textbf{\textcolor{RefBlue}{1. Introduction générale}}\\
+        \tiny Contexte, choix, motivation, présentation du secteur
+      \end{tcolorbox}
+      \vspace{0.2cm}
+      \begin{tcolorbox}[cardstyle]
+        \small\textbf{\textcolor{RefBlue}{2. Structure d'accueil}}\\
+        \tiny Marsa Maroc : chiffres-clés et terminaux portuaires
+      \end{tcolorbox}
+      \vspace{0.2cm}
+      \begin{tcolorbox}[cardstyle]
+        \small\textbf{\textcolor{RefBlue}{3. Problématique}}\\
+        \tiny Saisie manuelle ISO 6346 \& Phénomène de Re-handling
+      \end{tcolorbox}
+    \end{column}
+    
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[cardstyle]
+        \small\textbf{\textcolor{RefBlue}{4. Méthodologie \& Architecture}}\\
+        \tiny Vision YOLOv8/OCR, Kafka, Recuit Simulé \& Docker
+      \end{tcolorbox}
+      \vspace{0.2cm}
+      \begin{tcolorbox}[cardstyle]
+        \small\textbf{\textcolor{RefBlue}{5. Réalisation \& Résultats}}\\
+        \tiny Implémentation, démonstration Jumeau 3D et évaluations
+      \end{tcolorbox}
+      \vspace{0.2cm}
+      \begin{tcolorbox}[cardstyle]
+        \small\textbf{\textcolor{RefBlue}{6. Conclusion \& Perspectives}}\\
+        \tiny Bilan opérationnel et perspectives Smart Port
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+% ─── SLIDE 3 : CONTEXTE ET SECTEUR ────────────────────────────────────
+\begin{frame}{Contexte \& secteur logistique portuaire}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[cardstyle,title=\small\bfseries Le secteur en transformation]
+        \small
+        \begin{itemize}
+          \item Digitalisation croissante du commerce maritime mondial.
+          \item Le conteneur ISO : un flux d'information stratégique.
+          \item Impératif de réduction du temps d'escale.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[cardstyle,title=\small\bfseries Le défi opérationnel]
+        \small
+        \begin{itemize}
+          \item Volume important de conteneurs EVP traités sous contrainte de temps.
+          \item Suivi encore largement \textbf{manuel} au quai.
+          \item Congestion des parcs de stockage (Yard).
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+  
+  \vspace{0.4cm}
+  \begin{center}
+    \small\bfseries\itshape\textcolor{RefBlue}{Un secteur riche en \textcolor{RefOrange}{données}, mais dont le pilotage reste à \textcolor{RefOrange}{automatiser}.}
+  \end{center}
+\end{frame}
+
+% ─── SLIDE 4 : CHOIX ET MOTIVATION ────────────────────────────────────
+\begin{frame}{Choix \& motivation du projet}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[cardstyle,title=\small\bfseries La motivation]
+        \small
+        \begin{itemize}
+          \item Saisie manuelle sujette aux erreurs sous le quai STS.
+          \item Informations de placement au parc décalées.
+          \item Nécessité d'une réactivité accrue face à la complexité.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[cardstyle,title=\small\bfseries Le choix retenu]
+        \small
+        \begin{itemize}
+          \item Pipeline hybride \textbf{YOLOv8 + OCR + Streaming Kafka}.
+          \item Moteur d'optimisation du placement (\textbf{Recuit Simulé}).
+          \item Supervision en temps réel via \textbf{Jumeau 3D \& LLM}.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+  
+  \vspace{0.4cm}
+  \begin{center}
+    \small\bfseries\itshape\textcolor{RefBlue}{De la dispersion de l'information à l'\textcolor{RefOrange}{assistance intelligente}.}
+  \end{center}
+\end{frame}
+
+% ─── SLIDE 5 : MARSA MAROC ─────────────────────────────────────────────
+\begin{frame}{Marsa Maroc}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[cardstyle,title=\small\bfseries Identité]
+        \small
+        \begin{itemize}
+          \item Leader national de l'exploitation portuaire (9 ports).
+          \item Traitement de plus de 80\% du trafic maritime national.
+          \item Plusieurs millions d'EVP manipulés par an.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[cardstyle,title=\small\bfseries Initiatives PFE Smart Port]
+        \small
+        \begin{itemize}
+          \item \textbf{OCR Vision :} Lecture automatique ISO 6346.
+          \item \textbf{Yard Optimizer :} Placement intelligent EDD.
+          \item \textbf{Jumeau 3D \& LLM :} Supervision \& rapports.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+  
+  \vspace{0.4cm}
+  \begin{center}
+    \small\bfseries\itshape\textcolor{RefBlue}{PFE réalisé au sein de \textcolor{RefOrange}{Marsa Maroc}, sous l'encadrement de \textcolor{RefOrange}{M. Mohamed QODSI}.}
+  \end{center}
+\end{frame}
+
+% ─── SLIDE 6 : PROBLÉMATIQUE ──────────────────────────────────────────
+\begin{frame}{Une question centrale}
+  \begin{tcolorbox}[colback=white,colframe=RefBlue,arc=3mm,boxrule=1.2pt,halign=center]
+    \small\bfseries\textcolor{RefBlue}{Comment concevoir et mettre en œuvre un système intelligent capable d'automatiser l'identification des conteneurs par IA et d'optimiser leur placement au parc pour minimiser le re-handling ?}
+  \end{tcolorbox}
+  
+  \vspace{0.2cm}
+  \begin{columns}[t]
+    \begin{column}{0.31\textwidth}
+      \begin{tcolorbox}[cardstyle,halign=center]
+        \small\textbf{\textcolor{RefOrange}{1. Automatisation}}\\
+        \tiny YOLOv8 + OCR + Regex temps réel.
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.31\textwidth}
+      \begin{tcolorbox}[cardstyle,halign=center]
+        \small\textbf{\textcolor{RefOrange}{2. Optimisation}}\\
+        \tiny EDD + Recuit Simulé pour Bay/Stack/Tier.
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.31\textwidth}
+      \begin{tcolorbox}[cardstyle,halign=center]
+        \small\textbf{\textcolor{RefOrange}{3. Supervision}}\\
+        \tiny Jumeau 3D (Three.js) \& Synthèses LLM.
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+% ─── SLIDE 7 : ARCHITECTURE DEUX COUCHES ───────────────────────────────
+\begin{frame}{Une architecture en deux couches}
+  \begin{tcolorbox}[colback=RefBlue,colframe=RefBlue,arc=3mm,title=\small\bfseries LE CŒUR DU SYSTÈME -- Couche Inférence IA \& Optimisation]
+    \small\color{white}
+    Modèle YOLOv8 (Détection), EasyOCR + Regex (Lecture), Ingestion Kafka et Recuit Simulé (Placement Yard).
+  \end{tcolorbox}
+  
+  \vspace{0.1cm}
+  \begin{center}
+    \tiny\bfseries\textcolor{RefOrange}{s'appuie sur $\downarrow$ exposée via API REST Flask \& WebSockets}
+  \end{center}
+  \vspace{-0.1cm}
+  
+  \begin{tcolorbox}[cardstyle,title=\small\bfseries LA FONDATION -- Couche de Données \& Supervision 3D]
+    \small
+    Base PostgreSQL (Containers, Passages, Movements), Jumeau Numérique 3D Three.js et Générateur de Rapports LLM PDF.
+  \end{tcolorbox}
+  
+  \vspace{0.2cm}
+  \begin{center}
+    \small\bfseries\itshape\textcolor{RefBlue}{Séparer la \textcolor{RefOrange}{capture temps réel} du \textcolor{RefOrange}{calcul d'optimisation}.}
+  \end{center}
+\end{frame}
+
+% ─── SLIDE 8 : CONCLUSION ET REMERCIEMENTS ─────────────────────────────
+\begin{frame}[plain]
+  \begin{center}
+    \vspace{0.5cm}
+    \Huge\bfseries\textcolor{RefBlue}{Merci de votre attention !}
+    
+    \vspace{0.8cm}
+    \large\bfseries\textcolor{RefOrange}{Avez-vous des questions ?}
+    
+    \vspace{1.2cm}
+    \begin{tabular}{c c c}
+      \includegraphics[height=1.0cm]{universite.png} &
+      \quad \small \textbf{Marsa Maroc -- Master D3SI (USMS)} \quad &
+      \includegraphics[height=1.0cm]{faculte.jpg}
+    \end{tabular}
+  \end{center}
+\end{frame}
+
+\end{document}

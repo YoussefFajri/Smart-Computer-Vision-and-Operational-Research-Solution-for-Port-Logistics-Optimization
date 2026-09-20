@@ -1,0 +1,11 @@
+# Chemin de base (absolu ou relatif à la racine du conteneur YOLO)
+path: D:/Mersa_pfe/container_ai_project/datasets/custom_data
+
+# Dossiers d'entraînement et de validation (relatifs à "path")
+train: train/images  # images d'entraînement
+val: val/images      # images de validation (pour tester la précision pendant l'entraînement)
+test: test/images    # images de test (pour évaluer le modèle final après l'entraînement)
+
+# Nombre de classes et noms de classes (modifiez si vous avez plus de classes, ex: 'camion', 'grue', etc.)
+nc: 2
+names: ['container', 'texte']

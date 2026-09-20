@@ -1,0 +1,117 @@
+version: "3.9"
+
+services:
+  # ── PostgreSQL (production) ───────────────────────────────────────────────
+  db:
+    image: postgres:15-alpine
+    container_name: marsa_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB:       marsa_maroc
+      POSTGRES_USER:     marsa_user
+      POSTGRES_PASSWORD: marsa_password
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U marsa_user -d marsa_maroc"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ── Apache Kafka (Event Broker) ───────────────────────────────────────────
+  kafka:
+    image: apache/kafka:3.7.0
+    container_name: marsa_kafka
+    restart: unless-stopped
+    ports:
+      - "9092:9092"
+      - "9094:9094"
+    environment:
+      KAFKA_NODE_ID: 1
+      KAFKA_PROCESS_ROLES: broker,controller
+      # Quorum DOIT pointer sur le nom du conteneur, pas "localhost"
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@marsa_kafka:9093
+      # Listeners dual: INTERNAL pour Worker Docker, EXTERNAL pour scripts Windows
+      KAFKA_LISTENERS: INTERNAL://0.0.0.0:9092,EXTERNAL://0.0.0.0:9094,CONTROLLER://0.0.0.0:9093
+      KAFKA_ADVERTISED_LISTENERS: INTERNAL://kafka:9092,EXTERNAL://localhost:9094
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INTERNAL:PLAINTEXT,EXTERNAL:PLAINTEXT,CONTROLLER:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      # Clé du cluster pré-définie pour éviter le problème du bootstrap.checkpoint
+      CLUSTER_ID: MkU3OEVBNTcwNTJENDM2Qg
+      # Limite de mémoire tas (heap) pour Java (évite la surconsommation de RAM)
+      KAFKA_HEAP_OPTS: "-Xmx512M -Xms256M"
+
+  # ── Flask Backend ─────────────────────────────────────────────────────────
+  backend:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.backend
+    container_name: marsa_backend
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL:    postgresql://marsa_user:marsa_password@db:5432/marsa_maroc
+      FLASK_ENV:       production
+      FLASK_DEBUG:     "false"
+      LLM_BACKEND:     template
+      YOLO_MODEL_PATH: model/runs/marsa_container_model/weights/best.pt
+      PYTHONUNBUFFERED: "1"
+    volumes:
+      - ../uploads:/app/uploads
+      - ../static:/app/static
+      - ../reports:/app/reports
+      - C:\Users\Fajri Youssef\.EasyOCR\model:/root/.EasyOCR/model
+    ports:
+      - "5000:5000"
+
+  # ── Streamlit Dashboard ───────────────────────────────────────────────────
+  dashboard:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.dashboard
+    container_name: marsa_dashboard
+    restart: unless-stopped
+    depends_on:
+      - backend
+    environment:
+      API_BASE_URL: http://backend:5000
+    volumes:
+      - ../static:/app/static
+    ports:
+      - "8501:8501"
+
+  # ── Kafka Worker (AI Processor) ───────────────────────────────────────────
+  worker:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.backend
+    container_name: marsa_worker
+    restart: unless-stopped
+    command: ["python", "backend/services/kafka_worker.py"]
+    depends_on:
+      db:
+        condition: service_healthy
+      kafka:
+        condition: service_started
+    environment:
+      DATABASE_URL:    postgresql://marsa_user:marsa_password@db:5432/marsa_maroc
+      FLASK_ENV:       production
+      YOLO_MODEL_PATH: model/runs/marsa_container_model/weights/best.pt
+      KAFKA_BROKER_URL: kafka:9092
+      PYTHONUNBUFFERED: "1"
+    volumes:
+      - ../static:/app/static
+      - ../uploads:/app/uploads
+      - C:\Users\Fajri Youssef\.EasyOCR\model:/root/.EasyOCR/model
+
+volumes:
+  pg_data:
+  kafka_data:

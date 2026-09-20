@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Script Oral de Présentation PFE (Niveau B1)</title>
+<style>
+  @page {
+    size: A4;
+    margin: 20mm 20mm 20mm 20mm;
+  }
+  body {
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+    font-size: 11pt;
+    line-height: 1.6;
+    color: #1E293B;
+    background: #FFFFFF;
+  }
+  h1 {
+    font-size: 20pt;
+    color: #0F172A;
+    border-bottom: 3px solid #0D9488;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+  }
+  h2 {
+    font-size: 13pt;
+    color: #0D9488;
+    background: #F0FDF4;
+    border-left: 4px solid #0D9488;
+    padding: 6px 12px;
+    margin-top: 24px;
+    margin-bottom: 12px;
+    border-radius: 0 4px 4px 0;
+    page-break-after: avoid;
+  }
+  blockquote {
+    background: #F8FAFC;
+    border-left: 4px solid #6366F1;
+    margin: 10px 0 15px 0;
+    padding: 12px 16px;
+    font-style: italic;
+    font-size: 11pt;
+    color: #334155;
+    border-radius: 0 6px 6px 0;
+  }
+  strong {
+    color: #0F172A;
+  }
+  p {
+    margin-bottom: 10px;
+  }
+  hr {
+    border: none;
+    border-top: 1px solid #E2E8F0;
+    margin: 20px 0;
+  }
+  .meta-box {
+    background: #F1F5F9;
+    border: 1px solid #CBD5E1;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 10pt;
+  }
+</style>
+</head>
+<body>
+<h1>🎙️ Script de Présentation Orale PFE (Niveau B1)</h1>
+<p><strong>Titre :</strong> Solution Intelligente de Vision par Ordinateur et d'Optimisation Logistique Portuaire pour Marsa Maroc</p>
+<p><strong>Étudiant :</strong> FAJRI Youssef</p>
+<p><strong>Encadrant Académique :</strong> Pr. KICH Ismail</p>
+<p><strong>Encadrant Professionnel :</strong> M. Mohamed QODSI (Marsa Maroc)</p>
+<p><strong>Formation :</strong> Master Data Science et Sécurité des Systèmes d'Information (USMS / FPBM)</p>
+<p><strong>Durée estimée :</strong> 12 à 14 minutes (Format 10-15 min)</p>
+<hr>
+<h2>📌 Slide 1 — Couverture (0:00 - 0:45)</h2>
+<p><strong>Ce que vous dites :</strong></p>
+<blockquote><em>"Bonjour Mesdames et Messieurs les membres du jury.</em></blockquote>
+<blockquote><em>Je m'appelle FAJRI Youssef et je suis ravi de vous présenter aujourd'hui mon projet de fin d'études pour l'obtention du Master Data Science et Sécurité des Systèmes d'Information.</em></blockquote>
+<blockquote><em>Mon travail s'intitule : <strong>« Solution Intelligente de Vision par Ordinateur et d’Optimisation Logistique Portuaire pour Marsa Maroc »</strong>.</em></blockquote>
+<blockquote><em>Ce projet a été réalisé sous la direction académique du Professeur KICH Ismail, et sous la supervision professionnelle de Monsieur Mohamed QODSI au sein de Marsa Maroc.</em></blockquote>
+<blockquote><em>Je vous remercie pour votre présence."</em></blockquote>
+<hr>
+<h2>📌 Slide 2 — Sommaire (0:45 - 1:15)</h2>
+<p><strong>Ce que vous dites :</strong></p>
+<blockquote><em>"Voici le plan de ma présentation aujourd'hui :</em></blockquote>
+<blockquote><em>1. Tout d'abord, nous verrons le <strong>Contexte et la Problématique</strong> de Marsa Maroc.</em></blockquote>
+<blockquote><em>2. Ensuite, nous aborderons l'<strong>État de l'Art et les règles mathématiques</strong>.</em></blockquote>
+<blockquote><em>3. Puis, je vous présenterai l'<strong>Architecture technique</strong> de notre système.</em></blockquote>
+<blockquote><em>4. Après cela, nous parlerons de l'<strong>Implémentation et des algorithmes</strong> créés.</em></blockquote>
+<blockquote><em>5. Nous analyserons les <strong>Résultats obtenus</strong>.</em></blockquote>
+<blockquote><em>6. Enfin, nous terminerons par la <strong>Conclusion et les perspectives</strong> d'avenir."</em></blockquote>
+<hr>
+<h2>📌 Slide 3 — Contexte : Marsa Maroc & Flux Logistique (1:15 - 2:00)</h2>
+<p><strong>Ce que vous dites :</strong></p>
+<blockquote><em>"Commençons par le contexte.</em></blockquote>
+<blockquote><em>Marsa Maroc est le leader national de la gestion des ports au Maroc. L'entreprise gère 9 ports très importants, comme Casablanca et Tanger Med.</em></blockquote>
+<blockquote><em>Le voyage d'un conteneur se fait en 4 étapes simples :</em></blockquote>
+<blockquote><em>1. Le navire arrive au port.</em></blockquote>
+<blockquote><em>2. Le conteneur est déchargé au quai par une grande grue appelée <strong>STS</strong>.</em></blockquote>
+<blockquote><em>3. Un camion transporte le conteneur vers la zone de stockage appelée le <strong>Yard</strong>.</em></blockquote>
+<blockquote><em>4. Enfin, une autre grue appelée <strong>RTG</strong> empile le conteneur dans le parc avant sa livraison.</em></blockquote>
+<blockquote><em>L'objectif principal est de réduire le temps d'attente des navires dans le port."</em></blockquote>
+<hr>
+<h2>📌 Slide 4 — Problématiques : Saisie Manuelle & Re-handling (2:00 - 2:50)</h2>
+<p><strong>Ce que vous dites :</strong></p>
+<blockquote><em>"Pendant ce processus, nous avons identifié <strong>deux grands problèmes</strong> :</em></blockquote>
+<blockquote><em> </em>Premier problème au quai :<em> La saisie des codes de conteneurs se fait <strong>manuellement</strong> par des agents. À cause de la fatigue ou de la nuit, il y a <strong>4,8% d'erreurs de saisie</strong>, ce qui ralentit le travail.</em></blockquote>
+<blockquote><em> </em>Deuxième problème au parc (Yard) :<em> Les conteneurs sont souvent empilés sans organisation. Si un conteneur placé tout en bas doit sortir, la grue doit d'abord déplacer les conteneurs du dessus. C'est ce qu'on appelle le <strong>Re-handling</strong> (ou double manipulation), et son taux atteint <strong>39,5%</strong>.</em></blockquote>
+<blockquote><em>Ces deux problèmes entraînent une perte de temps et une surconsommation de carburant."</em></blockquote>
+<hr>
+<h2>📌 Slide 5 — Analyse Stratégique : SWOT (2:50 - 3:30)</h2>
+<p><strong>Ce que vous dites :</strong></p>
+<blockquote><em>"Pour analyser ce projet, nous avons fait une analyse SWOT :</em></blockquote>
+<blockquote><em> </em>Les Forces :<em> Automatisation du pointage, algorithmes d'optimisation rapides et architecture moderne.</em></blockquote>
+<blockquote><em> </em>Les Faiblesses :<em> Besoin d'une bonne carte graphique (GPU) et sensibilité à la mauvaise météo.</em></blockquote>
+<blockquote><em> </em>Les Opportunités :<em> Moderniser les terminaux et réduire l'empreinte carbone des grues.</em></blockquote>
+<blockquote><em> </em>Les Menaces :<em> Le coût du matériel IoT et les conditions difficiles en mer (le sel et l'humidité)."</em></blockquote>
+<hr>
+<h2>📌 Slide 6 — Objectifs & Solution Proposée (3:30 - 4:15)</h2>
+<p><strong>Ce que vous dites :</strong></p>
+<blockquote><em>"Pour résoudre ces problèmes, nous avons développé une plateforme intelligente avec 3 objectifs :</em></blockquote>
+<blockquote><em>1. <strong>Vision par Ordinateur (IA) :</strong> Détecter et lire automatiquement le code ISO du conteneur au quai sans intervention humaine.</em></blockquote>
+<blockquote><em>2. <strong>Optimisation du Stockage :</strong> Calculer la meilleure position dans le parc grâce à un algorithme d'optimisation pour réduire le re-handling à moins de 15%.</em></blockquote>
+<blockquote><em>3. <strong>Supervision 3D :</strong> Offrir un tableau de bord en 3D avec Three.js pour aider les responsables à visualiser le parc en temps réel."</em></blockquote>
+<hr>
+<h2>📌 Slide 7 — Détection : YOLOv8 & CNN (4:15 - 5:00)</h2>
+<p><strong>Ce que vous dites :</strong></p>
+<blockquote><em>"Passons maintenant à la partie technique et à la détection par IA.</em></blockquote>
+<blockquote><em>Nous utilisons le modèle <strong>YOLOv8</strong>.</em></blockquote>
+<blockquote><em>Comment ça marche ? Un réseau de neurones convolutif (CNN) applique des filtres sur l'image pour extraire les contours et les formes du conteneur.</em></blockquote>
+<blockquote><em>YOLOv8 est un modèle « Single-Stage » : cela veut dire qu'il détecte le conteneur et sa plaque en <strong>une seule étape</strong>, ce qui rend le traitement ultra-rapide en temps réel."</em></blockquote>
+<hr>
+<h2>📌 Slide 8 — Mathématiques : Détection YOLOv8 (5:00 - 5:45)</h2>
+<p><strong>Ce que vous dites :</strong></p>
+<blockquote><em>"Pour entraîner YOLOv8, nous utilisons trois formules mathématiques importantes :</em></blockquote>
+<blockquote><em>1. <strong>La fonction d'activation SiLU :</strong> Elle aide le réseau à apprendre plus vite sans bloquer les calculs.</em></blockquote>
+<blockquote><em>2. <strong>La perte CIoU :</strong> Elle vérifie que la boîte de détection est bien centrée autour du conteneur.</em></blockquote>
+<blockquote><em>3. <strong>La perte DFL :</strong> Elle aide le modèle à rester très précis, même quand les bords de l'image sont flous à cause de la pluie ou de l'obscurité."</em></blockquote>
+<hr>
+<h2>📌 Slide 9 — Reconnaissance : OCR CRAFT & CRNN (5:45 - 6:30)</h2>
+<p><strong>Ce que vous dites :</strong></p>
+<blockquote><em>"Une fois la plaque détectée, il faut lire le texte grâce à un pipeline OCR en deux étapes :</em></blockquote>
+<blockquote><em>1. <strong>CRAFT :</strong> Ce modèle cherche et localise précisément l'emplacement de chaque lettre sur la plaque.</em></blockquote>
+<blockquote><em>2. <strong>CRNN (CNN + Bi-LSTM) :</strong> Le CNN extrait l'image des lettres, et le réseau Bi-LSTM lit la séquence de gauche à droite pour prédire le mot exact."</em></blockquote>
+<hr>
+<h2>📌 Slide 10 — Décodage CTC (6:30 - 7:15)</h2>
+<p><strong>Ce que vous dites :</strong></p>
+<blockquote><em>"Quand l'IA lit une image, elle découpe le texte en petites tranches. Elle voit souvent des lettres répétées ou des espaces vides (notés epsilon ε).</em></blockquote>
+<blockquote><em>Nous utilisons le décodage <strong>CTC (Connectionist Temporal Classification)</strong>.</em></blockquote>
+<blockquote><em>Les règles sont très simples :</em></blockquote>
+<blockquote><em>1. On fusionne les lettres identiques consécutives.</em></blockquote>
+<blockquote><em>2. On efface les espaces vides ε.</em></blockquote>
+<blockquote><em>Par exemple, la séquence `M-S-S-C-U-U-ε` devient automatiquement le code propre <strong>`MSCU`</strong>."</em></blockquote>
+<hr>
+<h2>📌 Slide 11 — Optimisation : Stacking & Recuit Simulé (7:15 - 8:00)</h2>
+<p><strong>Ce que vous dites :</strong></p>
+<blockquote><em>"Après la lecture du code, il faut placer le conteneur dans le parc.</em></blockquote>
+<blockquote><em>Nous appliquons la règle <strong>EDD (Earliest Due Date)</strong> : le conteneur qui doit partir le premier doit être placé tout au-dessus de la pile.</em></blockquote>
+<blockquote><em>Pour trouver le meilleur emplacement parmi des milliers de possibilités, nous utilisons l'algorithme du <strong>Recuit Simulé</strong>.</em></blockquote>
+<blockquote><em>Grâce au critère de Metropolis, cet algorithme accepte parfois une solution moins bonne au début pour éviter de rester bloqué et trouver l'organisation parfaite."</em></blockquote>
+<hr>
+<h2>📌 Slide 12 — Architecture Microservices (8:00 - 8:45)</h2>
+<p><strong>Ce que vous dites :</strong></p>
+<blockquote><em>"Voici l'architecture globale de notre système.</em></blockquote>
+<blockquote><em>Nous utilisons une architecture <strong>Microservices Asynchrone</strong> :</em></blockquote>
+<blockquote><em> </em>Les caméras IoT<em> envoient les images au serveur de messagerie <strong>Apache Kafka</strong>.</em></blockquote>
+<blockquote><em> </em>Un Worker IA<em> récupère les images dans Kafka et lance les calculs YOLO et OCR en arrière-plan.</em></blockquote>
+<blockquote><em>Toutes les données sont stockées dans une base <strong>PostgreSQL</strong>, et une <strong>API Flask</strong> permet de faire le lien avec l'interface utilisateur."</em></blockquote>
+<hr>
+<h2>📌 Slide 13 — Algorithme "Segment-and-Stitch" (8:45 - 9:30)</h2>
+<p><strong>Ce que vous dites :</strong></p>
+<blockquote><em>"Sur beaucoup de conteneurs, les codes ISO sont écrits <strong>verticalement</strong> (de haut en bas).</em></blockquote>
+<blockquote><em>Les logiciels d'OCR classiques échouent car ils lisent horizontalement.</em></blockquote>
+<blockquote><em>Pour résoudre cela, j'ai développé l'algorithme <strong>Segment-and-Stitch</strong> en 3 étapes :</em></blockquote>
+<blockquote><em>1. Isoler chaque lettre.</em></blockquote>
+<blockquote><em>2. Trier les lettres du haut vers le bas.</em></blockquote>
+<blockquote><em>3. Re-coller les lettres horizontalement sur une seule ligne.</em></blockquote>
+<blockquote><em>Grâce à cela, l'OCR lit le code vertical sans aucune erreur."</em></blockquote>
+<hr>
+<h2>📌 Slide 14 — OCR Optimisé : Early Exit & Kafka Worker (9:30 - 10:15)</h2>
+<p><strong>Ce que vous dites :</strong></p>
+<blockquote><em>"Pour rendre le système très rapide, nous avons ajouté deux optimisations :</em></blockquote>
+<blockquote><em>1. <strong>Early Exit (Sortie anticipée) :</strong> Nous appliquons plusieurs filtres sur l'image. Dès que l'OCR trouve un code valide (format Regex ISO) avec plus de 25% de confiance, le traitement s'arrête immédiatement.</em></blockquote>
+<blockquote><em>2. <strong>Backpressure :</strong> Si les caméras envoient trop d'images, le système met en pause les nouvelles trames pour ne pas faire planter le serveur.</em></blockquote>
+<blockquote><em>Résultat : le temps de lecture est passé de <strong>8 secondes à seulement 1,3 seconde</strong> par conteneur !"</em></blockquote>
+<hr>
+<h2>📌 Slide 15 — Jumeau Numérique 3D & Supervision (10:15 - 11:00)</h2>
+<p><strong>Ce que vous dites :</strong></p>
+<blockquote><em>"Pour aider les grutiers et les responsables de Marsa Maroc, nous avons créé un <strong>Jumeau Numérique 3D</strong>.</em></blockquote>
+<blockquote><em>Dans notre application Web Streamlit, nous avons intégré un canvas WebGL avec la bibliothèque <strong>Three.js</strong>.</em></blockquote>
+<blockquote><em>Les conteneurs apparaissent en 3D avec des couleurs selon leur statut. Le système montre visuellement au grutier exactement où poser le conteneur."</em></blockquote>
+<hr>
+<h2>📌 Slide 16 — Résultats Expérimentaux (11:00 - 11:45)</h2>
+<p><strong>Ce que vous dites :</strong></p>
+<blockquote><em>"Venons-en aux résultats expérimentaux de notre solution :</em></blockquote>
+<blockquote><em>1. <strong>Précision de détection (YOLOv8) : 96,1%</strong> mAP@0.5.</em></blockquote>
+<blockquote><em>2. <strong>Taux de réussite OCR : 85%</strong> (sur textes horizontaux et verticaux).</em></blockquote>
+<blockquote><em>3. <strong>Taux de Re-handling (double manipulation) : réduit à moins de 12%</strong>, même lorsque le parc est rempli à 95%.</em></blockquote>
+<blockquote><em>En résumé, notre système réduit de plus de <strong>75%</strong> les mouvements inutiles de conteneurs."</em></blockquote>
+<hr>
+<h2>📌 Slide 17 — Déploiement Conteneurisé avec Docker (11:45 - 12:15)</h2>
+<p><strong>Ce que vous dites :</strong></p>
+<blockquote><em>"Pour installer cette solution facilement sur le terrain, l'application est entièrement conteneurisée avec <strong>Docker Compose</strong>.</em></blockquote>
+<blockquote><em>Nous avons 5 conteneurs séparés (PostgreSQL, Kafka, Zookeeper, l'API Flask et Streamlit).</em></blockquote>
+<blockquote><em>Cela garantit une grande stabilité, aucune incompatibilité de logiciel et une installation très simple sur les serveurs de Marsa Maroc."</em></blockquote>
+<hr>
+<h2>📌 Slide 18 — Conclusion & Perspectives (12:15 - 13:00)</h2>
+<p><strong>Ce que vous dites :</strong></p>
+<blockquote><em>"En conclusion, les objectifs de ce Projet de Fin d'Études sont atteints :</em></blockquote>
+<blockquote><em> Le pipeline IA (YOLOv8 + OCR) est opérationnel.</em></blockquote>
+<blockquote><em> Le moteur d'optimisation (Recuit Simulé) réduit fortement le re-handling.</em></blockquote>
+<blockquote><em> Le Jumeau Numérique 3D offre une vision claire du parc en temps réel.</em></blockquote>
+<p>></p>
+<blockquote><em>Comme perspectives futures :</em></blockquote>
+<blockquote><em> Nous pouvons installer des cartes matérielles <strong>NVIDIA Jetson</strong> directement sur les grues.</em></blockquote>
+<blockquote><em> Nous pouvons entraîner un modèle OCR CRNN spécifique pour les polices portuaires.</em></blockquote>
+<blockquote><em> Et enfin, connecter directement notre système avec le logiciel TOS de Marsa Maroc."</em></blockquote>
+<hr>
+<h2>📌 Slide 19 — Merci de votre attention (13:00 - 13:30)</h2>
+<p><strong>Ce que vous dites :</strong></p>
+<blockquote><em>"Je tiens à exprimer mes sincères remerciements à mon encadrant académique Pr. KICH Ismail, à mon encadrant professionnel M. Mohamed QODSI, ainsi qu'à tous les membres du jury pour votre écoute et vos conseils.</em></blockquote>
+<p>></p>
+<blockquote><em>Je suis maintenant à votre disposition pour répondre à toutes vos questions.</em></blockquote>
+<blockquote><em>Merci !"</em></blockquote>
+<hr>
+<p>### 💡 Conseils pour l'oral :</p>
+<li><strong>Phrases simples</strong> : Ce script utilise un langage de niveau B1, parfait pour s'exprimer avec fluidité sans hésitation.</li>
+<li><strong>Gestion du temps</strong> : Chaque diapositive prend environ 35 à 45 secondes, ce qui donne une durée totale de 12 à 13 minutes.</li>
+<li><strong>Accentuations</strong> : Insistez bien oralement sur les chiffres clés (<strong>96,1%</strong>, <strong>85%</strong>, <strong>12%</strong>, <strong>1,3s</strong>).</li>
+</body></html>

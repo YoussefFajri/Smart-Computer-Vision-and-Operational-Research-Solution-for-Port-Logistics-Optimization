@@ -1,0 +1,36 @@
+# Computer Vision
+ultralytics>=8.0.0
+opencv-python>=4.8.0
+easyocr>=1.7.0
+Pillow>=10.0.0
+pytesseract>=0.3.10
+
+# Flask API
+flask>=3.0.0
+flask-cors>=4.0.0
+
+# Database
+sqlalchemy>=2.0.0
+psycopg2-binary>=2.9.0
+kafka-python-ng>=2.2.3
+
+# Data processing
+pandas>=2.0.0
+numpy>=1.24.0
+matplotlib>=3.7.0
+
+# PDF Generation
+reportlab>=4.0.0
+
+# Dashboard
+streamlit>=1.30.0
+plotly>=5.18.0
+
+# HTTP requests
+requests>=2.31.0
+
+# Environment variables
+python-dotenv>=1.0.0
+
+# Utilities
+tqdm>=4.66.0

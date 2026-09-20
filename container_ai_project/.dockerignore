@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.git/
+mersa_pfe/
+database/marsa_maroc.db
+uploads/
+static/
+.env
+datasets/
+notebooks/
+reports/
+database/
+test_*.py

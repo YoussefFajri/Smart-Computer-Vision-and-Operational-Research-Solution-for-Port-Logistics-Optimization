@@ -1,0 +1,70 @@
+# ==========================================
+# Marsa Maroc PFE — Global Git Ignore
+# ==========================================
+
+# 1. Environment & Secrets
+.env
+*.env
+*.env.local
+*.pem
+*.key
+
+# 2. Python & Virtual Environments
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+.pytest_cache/
+.coverage
+htmlcov/
+*.log
+
+# 3. Node.js & Web Projects (Slidev / Frontend)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+dist/
+dist_test/
+.output/
+
+# 4. Database Files (SQLite & Docker Volumes)
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+postgres_data/
+
+# 5. Dynamic Uploads & Generated Reports
+container_ai_project/uploads/*
+!container_ai_project/uploads/.gitkeep
+container_ai_project/reports/*
+!container_ai_project/reports/.gitkeep
+container_ai_project/static/*
+!container_ai_project/static/.gitkeep
+
+# 6. LaTeX Build Output (template_D3SI)
+*.aux
+*.log
+*.lot
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+*.bbl
+*.blg
+
+# 7. Operating System & IDE Files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
