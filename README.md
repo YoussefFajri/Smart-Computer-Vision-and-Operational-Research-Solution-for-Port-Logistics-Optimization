@@ -1,4 +1,4 @@
-# 🚢 Port Logistics AI — Solution Intelligente de Vision par Ordinateur et d'Optimisation pour Marsa Maroc
+# Port Logistics AI — Solution Intelligente de Vision par Ordinateur et d'Optimisation pour Marsa Maroc
 
 > **Projet de Fin d'Études (PFE)**
 > Plateforme intégrée de détection automatique de conteneurs (IA YOLOv8 & OCR double orientation), de streaming temps réel (Kafka), d'optimisation de placement de parc (EDD) et d'aide à la décision 3D (Three.js).
